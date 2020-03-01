@@ -21,8 +21,8 @@ const findAsset = name => {
   });
 };
 
-const hostname = "127.0.0.1";
-const port = 3000;
+const PORT = process.env.PORT || 5000;
+
 const router = {
   "/ GET": {
     asset: "index.html",
@@ -59,6 +59,6 @@ const server = http.createServer(async (req, res) => {
   // most important part, send down the asset
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+server.listen(PORT, () => {
+  console.log(`Server running on ${PORT}/`);
 });
